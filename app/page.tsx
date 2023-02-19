@@ -1,51 +1,21 @@
-'use client';
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment, incrementByAmount, decrementByAmount } from "../slices/counterSlice";
-import type { RootState } from "../store/store";
-import { useState } from "react";
+import type { NextPage } from 'next'
+import Head from 'next/head'
 
-function page() {
-    
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-  const [amount, setAmount] = useState("10");
+import Counter from '../features/counter/Counter'
+import styles from '../styles/home.module.css'
 
+const IndexPage: NextPage = () => {
   return (
-    <>
-      <div className="flex justify-center pt-[20%] pb-10">
-        <button 
-          className="w-40 bg-red-500 rounded-full mr-5 border-2 border-black"
-          onClick={() => dispatch(decrement())}>
-          [-1] DECREMENT
-        </button>
-        <button 
-          className="w-40 bg-green-500 rounded-full border-2 border-black" 
-          onClick={() => dispatch(increment())}>
-          [+1] INCREMENT
-        </button>
-      </div>
-      <p className="text-center text-5xl font-bold">Count = {count}</p>
-      <div className="flex justify-center space-x-5 pt-12">
-        <button
-          className="w-40 bg-blue-500 rounded-full border-2 border-black"
-          onClick={() => dispatch(decrementByAmount(+amount))}>
-          [-] AMOUNT
-        </button>
-        <input
-          title="amount"
-          className="w-30 bg-[darkseagreen] rounded-full text-center border-2 border-black"
-          type="text"
-          defaultValue={amount}
-          onChange={(e) => {setAmount(e.target.value);}}
-        />
-        <button
-          className="w-40 bg-[saddlebrown] rounded-full border-2 border-black"
-          onClick={() => dispatch(incrementByAmount(+amount))}>
-          [+] AMOUNT
-        </button>
-      </div>
-    </> 
+    <div className={styles.container}>
+      <Head>
+        <title>Redux Toolkit</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <header className={styles.header}>
+        <Counter />
+      </header>
+    </div>
   )
 }
 
-export default page;
+export default IndexPage
