@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import 'antd/dist/antd.css'
 import { Providers } from './provider';
 
 export default function RootLayout({

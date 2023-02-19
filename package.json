@@ -8,11 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.9.0",
+    "antd": "^4.24.8",
+    "dayjs": "^1.10.6",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "sass": "1.26.3"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
